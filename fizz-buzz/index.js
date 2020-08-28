@@ -6,15 +6,15 @@
  */
 
  for (let currentNumber = 1; currentNumber <= 100; currentNumber++) {
-   const fizz = "Fizz"
-   const buzz = "Buzz"
+   let strOutput = ""
 
    const isDivisibleBy = (currentNumber, num) => currentNumber % num === 0
 
    const isDivisibleBy3 = isDivisibleBy(currentNumber, 3)
    const isDivisibleBy5 = isDivisibleBy(currentNumber, 5)
 
-   if(isDivisibleBy3 && isDivisibleBy5) console.log(`${fizz}${buzz}`)
-   else if(isDivisibleBy3) console.log(fizz)
-   else if(isDivisibleBy5) console.log(buzz)
+   if(isDivisibleBy3) strOutput += "Fizz"
+   if(isDivisibleBy5) strOutput += "Buzz"
+
+   console.log(strOutput || currentNumber)
  }

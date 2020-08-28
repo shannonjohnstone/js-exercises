@@ -14,17 +14,16 @@ const createChessboard = (limit) => {
 
   for (let yAxisIndex = 1; yAxisIndex <= limit; yAxisIndex++) {
     for (let xAxisIndex = 1; xAxisIndex <= limit; xAxisIndex++) {
-      let token = " "
-      const isOddYAxis = yAxisIndex % 2 !== 0
-      const isOddXAxis = xAxisIndex % 2 !== 0
+      let symbol = " "
+      const isOdd = (yAxisIndex + xAxisIndex) % 2 !== 0
      
-      if ((isOddYAxis && isOddXAxis) || (!isOddYAxis && !isOddXAxis)) {
-        token = " "
+      if (isOdd) {
+        symbol = "#"
       } else {
-        token = "#"
+        symbol = " "
       }
       
-      strOutput += token
+      strOutput += symbol
      }
 
      strOutput += "\n"
@@ -55,7 +54,7 @@ const createChessboardRecursive = (limit) => {
     const symbol = index < limit ? "# " : "#"
 
     if(limit === index) return strOutput + "\n" + handleYAxis()
-    
+
     return strOutput += symbol + handleRowItem(outerIndex, limit, handleYAxis, index + 1)
   }
 
